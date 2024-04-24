@@ -1,0 +1,58 @@
+:root {
+  /* Dark-Mode with deep-magenta primary color and purple secondary color */
+  --primary-color: #8a2be2;
+  --secondary-color: #ff1493;
+  --background-color: #121212;
+}
+
+body {
+  background-color: var(--background-color);
+  color: white;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Nav */
+nav {
+  min-height: 5vh;
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-right: 1rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  padding: 0 2rem;
+}
+
+section:not(:first-of-type) {
+  margin-bottom: 2rem;
+  height: 100vh;
+}
+
+section.hero {
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
+  place-content: center;
+  place-items: center;
+  gap: 2rem;
+}
+
+section.hero .hero-text {
+  display: flex;
+  flex-direction: column;
+}
