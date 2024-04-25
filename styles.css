@@ -66,11 +66,15 @@ main * {
 }
 
 section {
+  display: static;
   height: 89vh;
+  min-height: 89vh;
   background-size: cover;
   scroll-snap-align: start;
   padding-top: 1rem;
   padding-inline: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
 section.hero {
@@ -135,7 +139,16 @@ section.hero .hero-text h1 {
   min-width: 200px;
 }
 
+section.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
 section.skills > ul {
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -153,7 +166,13 @@ section.skills > ul > li {
   gap: 0.5rem;
 }
 
-section.skills > ul li > .skill-bar {
+section.skills > ul > li .skill-shadow {
+  background-color: rgba(102, 102, 102, 0.2);
+  border-radius: 1rem;
+  width: 100%;
+}
+
+section.skills > ul li .skill-bar {
   background-color: var(--secondary-color);
   border-radius: 1rem;
   padding: 1rem;
@@ -163,14 +182,58 @@ section.skills > ul li > .skill-bar {
   text-shadow: 1px 1px 2px darkslategray;
 }
 
-section.skills > ul li > .skill-bar > span.value::after {
+section.skills > ul li .skill-bar > span.value::after {
   content: " %";
   font-size: 1.1em;
 }
 
-section.project-cards ul {
+section.timeline {
+  font-size: 0.8em;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+section.project-cards {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+section.project-cards ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  list-style: none;
+  gap: 2rem;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+section.project-cards ul li {
+  background-color: var(--primary-color);
+  border-radius: 15px;
+  box-shadow: 4px 4px 10px var(--primary-color);
+}
+
+section.project-cards ul li img {
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+}
+
+section.project-cards ul li *:not(img) {
+  margin-inline: 1rem;
+}
+
+section.project-cards ul li :last-child {
+  margin-bottom: 1rem;
+  border-radius: 15px;
+  padding: 1rem;
+  background-color: rgba(255, 19, 137, 0.8);
 }
 
 @media screen and (max-width: 1100px) {
@@ -202,5 +265,15 @@ section.project-cards ul {
   }
   section.hero img {
     max-width: 100%;
+  }
+
+  section.project-cards ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  section.project-cards ul li {
+    width: 300px;
   }
 }
