@@ -1,7 +1,7 @@
 :root {
   /* Dark-Mode with deep-magenta primary color and purple secondary color */
-  --primary-color: #8a2be2;
-  --secondary-color: #ff1493;
+  --primary-color: #8d1cf7;
+  --secondary-color: #fc0db0;
   --background-color: #121212;
 }
 
@@ -13,16 +13,30 @@ body {
   padding: 0;
 }
 
+.text-accent {
+  color: var(--secondary-color);
+}
+.text-primary {
+  color: var(--primary-color);
+  text-shadow: 1px 1px 2px darkslategray;
+}
+
 /* Nav */
 nav {
-  min-height: 5vh;
+  display: flex;
+  width: 100%;
+  position: fixed;
+  height: 5vh;
   padding: 1rem 2rem;
-  background-color: var(--primary-color);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 nav ul {
   display: flex;
   list-style: none;
+  margin: 0;
+  padding: 0 0 0 2rem;
+  align-items: center;
 }
 
 nav ul li {
@@ -32,21 +46,37 @@ nav ul li {
 nav ul li a {
   color: white;
   text-decoration: none;
+  font-size: 20px;
 }
 
 main {
-  padding: 0 2rem;
+  position: fixed;
+  width: 100%;
+  height: 90vh;
+  margin-top: 10vh;
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: thin;
 }
 
-section:not(:first-of-type) {
-  margin-bottom: 2rem;
-  height: 100vh;
+main * {
+  transition: all 0.3s ease;
+}
+
+section {
+  height: 90vh;
+  background-size: cover;
+  scroll-snap-align: start;
+  padding-top: 1rem;
+  padding-inline: 2rem;
 }
 
 section.hero {
   height: 90vh;
   display: grid;
-  grid-template-columns: 0.8fr 1fr;
+  grid-template-columns: 1fr 1fr;
   place-content: center;
   place-items: center;
   gap: 2rem;
@@ -55,4 +85,89 @@ section.hero {
 section.hero .hero-text {
   display: flex;
   flex-direction: column;
+  font-size: 1.2em;
+}
+
+section.hero .hero-text h1,
+h2 {
+  margin: 0 auto;
+  font-weight: 400;
+  text-wrap: nowrap;
+}
+
+section.hero .hero-text h1 {
+  font-size: 3em;
+  font-weight: 400;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  margin: 2rem;
+  font-size: 1.2em;
+  font-style: italic;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  width: 40ch;
+}
+
+.hero-text p::before {
+  content: "“";
+  font-size: 2em;
+  color: var(--secondary-color);
+}
+
+.hero-text p::after {
+  content: "”";
+  font-size: 2em;
+  color: var(--secondary-color);
+}
+
+.hero img {
+  max-height: 100%;
+  max-width: 500px;
+  object-fit: contain;
+  border-radius: 15px;
+  min-width: 200px;
+}
+
+section.project-cards ul {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 1100px) {
+  main > section.hero#hero {
+    grid-template-columns: 0.5fr 1fr;
+  }
+  section.hero .hero-text {
+    font-size: 1em;
+  }
+  section.hero .hero-text p {
+    width: 30ch;
+  }
+  .hero img {
+    max-width: 300px;
+  }
+}
+@media screen and (max-width: 840px) {
+  section.hero .hero-text {
+    font-size: 0.9em;
+  }
+  section.hero .hero-text h1 {
+    font-size: 2.5em;
+  }
+  section.hero .hero-text h2 {
+    font-size: 1.5em;
+  }
+  section.hero .hero-text p {
+    width: 25ch;
+  }
+  section.hero img {
+    max-width: 100%;
+  }
 }
