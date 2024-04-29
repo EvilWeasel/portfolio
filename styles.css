@@ -203,14 +203,15 @@ section.skills > ul li .skill-bar > span.value::after {
 
 section.timeline {
   font-size: 0.8em;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow-y: hidden;
+  overflow-y: scroll;
 }
 
 .timeline-items {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -228,7 +229,7 @@ section.timeline {
 }
 
 .timeline-item {
-  margin-bottom: 35px;
+  margin-bottom: 10px;
   width: 100%;
   position: relative;
   transform: scale(0.8);
